@@ -41,25 +41,21 @@ public class DynamicArray {
     public void remove(int indexToBeRemoved) {
     }
 
-    public void insert(int index, int newValue) {
-        if(index>=0&&index<array.length) {
-            int[] newArray = Arrays.copyOf(array, array.length + 1);
 
-            for (int oldArrayIndex = 0; oldArrayIndex < array.length; oldArrayIndex++) {
-                if (oldArrayIndex < index) {
-                    newArray[oldArrayIndex] = array[oldArrayIndex];
-                } else if (oldArrayIndex == index) {
-                    newArray[index] = newValue;
-                } else if (oldArrayIndex > index) {
-                    newArray[oldArrayIndex + 1] = array[oldArrayIndex];
+        public void insert(int index, int newValue) {
+            if (index < array.length && index>=0) {
+                array = Arrays.copyOf(array, array.length + 1);
+                for (int i = array.length - 1; i > index; i--) {
+                    array[i] = array[i - 1];
                 }
+                array[index] = newValue;
+            } else if (index > array.length) {
+                add(newValue);
+            } else {
+                throw new ArrayIndexOutOfBoundsException();
             }
-            array = Arrays.copyOf(newArray, newArray.length);
-        } else if (index>=array.length) {
-            add(newValue);
-        }else
-        {
-            throw new ArrayIndexOutOfBoundsException();
+            if (array.length > capacity) {
+                capacity *= 2;
+            }
         }
-    }
 }
