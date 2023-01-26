@@ -1,5 +1,7 @@
 package com.codecool.dynamicarray;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 
 public class DynamicArray {
@@ -14,19 +16,26 @@ public class DynamicArray {
     public DynamicArray() {
         this(4);
     }
+
     public int getCapacity() {
         return capacity;
     }
+
     public int size() {
         return array.length;
     }
+
     public void add(int value) {
         array = Arrays.copyOf(array, array.length + 1);
         array[array.length - 1] = value;
     }
 
     public int get(int index) {
-        return 0;
+        if (index <= array.length && index > 0){
+            return array[index];
+        } else {
+            throw new ArrayIndexOutOfBoundsException();
+        }
     }
 
     public void remove(int indexToBeRemoved) {
