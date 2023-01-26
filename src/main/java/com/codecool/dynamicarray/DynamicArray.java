@@ -16,9 +16,8 @@ public class DynamicArray {
         return capacity;
     }
     public int size() {
-        return 0;
+        return array.length;
     }
-
     public void add(int value) {
     }
 
