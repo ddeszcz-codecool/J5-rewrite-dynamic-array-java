@@ -42,5 +42,24 @@ public class DynamicArray {
     }
 
     public void insert(int index, int newValue) {
+        if(index>=0&&index<array.length) {
+            int[] newArray = Arrays.copyOf(array, array.length + 1);
+
+            for (int oldArrayIndex = 0; oldArrayIndex < array.length; oldArrayIndex++) {
+                if (oldArrayIndex < index) {
+                    newArray[oldArrayIndex] = array[oldArrayIndex];
+                } else if (oldArrayIndex == index) {
+                    newArray[index] = newValue;
+                } else if (oldArrayIndex > index) {
+                    newArray[oldArrayIndex + 1] = array[oldArrayIndex];
+                }
+            }
+            array = Arrays.copyOf(newArray, newArray.length);
+        } else if (index>=array.length) {
+            add(newValue);
+        }else
+        {
+            throw new ArrayIndexOutOfBoundsException();
+        }
     }
 }
