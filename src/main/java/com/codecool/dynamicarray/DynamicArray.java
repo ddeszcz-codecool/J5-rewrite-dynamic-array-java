@@ -1,7 +1,5 @@
 package com.codecool.dynamicarray;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Arrays;
 
 public class DynamicArray {
@@ -66,4 +64,17 @@ public class DynamicArray {
                 capacity *= 2;
             }
         }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            result.append(array[i]);
+            if (i == array.length - 1) {
+                continue;
+            }
+            result.append(", ");
+        }
+        return array.length > 0 ? String.format("[%s]", result) : "[]";
+    }
 }
