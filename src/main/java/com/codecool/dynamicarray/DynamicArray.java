@@ -39,8 +39,16 @@ public class DynamicArray {
     }
 
     public void remove(int indexToBeRemoved) {
-    }
+        int[] arrayCopy = new int[array.length - 1];
+        for (int i = 0, j = 0; i < array.length; i++) {
+            if (i == indexToBeRemoved) {
+                continue;
+            }
+            arrayCopy[j++] = array[i];
+        }
+        array = arrayCopy;
 
+    }
 
         public void insert(int index, int newValue) {
             if (index < array.length && index>=0) {
