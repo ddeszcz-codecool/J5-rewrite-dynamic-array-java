@@ -1,5 +1,7 @@
 package com.codecool.dynamicarray;
 
+import java.util.Arrays;
+
 public class DynamicArray {
 
     private int capacity;
@@ -19,6 +21,8 @@ public class DynamicArray {
         return array.length;
     }
     public void add(int value) {
+        array = Arrays.copyOf(array, array.length + 1);
+        array[array.length - 1] = value;
     }
 
     public int get(int index) {
