@@ -31,7 +31,7 @@ public class DynamicArray {
     }
 
     public int get(int index) {
-        if (index <= array.length && index > 0){
+        if (index < array.length && index >= 0){
             return array[index];
         } else {
             throw new ArrayIndexOutOfBoundsException();
