@@ -1,18 +1,20 @@
 package com.codecool.dynamicarray;
 
 public class DynamicArray {
-    private int[] array;
+
+    private int capacity;
+    private int[] array = new int[0];
 
     public DynamicArray(int capacity) {
+        this.capacity = capacity;
     }
 
     public DynamicArray() {
+        this(4);
     }
-
     public int getCapacity() {
-        return 0;
+        return capacity;
     }
-
     public int size() {
         return 0;
     }
